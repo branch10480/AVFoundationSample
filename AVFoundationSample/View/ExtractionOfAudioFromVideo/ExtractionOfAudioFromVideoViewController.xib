@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExtractionOfAudioFromVideoViewController" customModule="AVFoundationSample" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="buttons" destination="bwJ-TL-aln" collectionClass="NSMutableArray" id="sWr-t8-giP"/>
+                <outletCollection property="buttons" destination="Ccb-kW-MFS" collectionClass="NSMutableArray" id="MYi-Ni-ZCs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ehr-pB-Vkq">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5W-pl-yqJ">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="EeY-ap-sdN">
+                                    <rect key="frame" x="16" y="32" width="382" height="246.5"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rZ0-3u-BmS">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="97"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play a video." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8d-8P-PeI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccb-kW-MFS">
+                                                    <rect key="frame" x="0.0" y="36.5" width="382" height="44"/>
+                                                    <color key="backgroundColor" red="0.30069732669999999" green="0.62170332669999995" blue="0.92936509850000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="wCu-RJ-xFP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <state key="normal" title="Play a video">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTapPlayButton:" destination="-1" eventType="touchUpInside" id="cUv-0M-lBM"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ML4-Ak-wTI">
+                                                    <rect key="frame" x="0.0" y="96.5" width="382" height="0.5"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.5" id="Q6L-KS-QGv"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2Qq-EF-WW6">
+                                            <rect key="frame" x="0.0" y="129" width="382" height="117.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When this button is tapped it is started to convert a video to an audio, then will be played." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzs-Ez-wgb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="41"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwJ-TL-aln">
+                                                    <rect key="frame" x="0.0" y="57" width="382" height="44"/>
+                                                    <color key="backgroundColor" red="0.30069732669999999" green="0.62170332669999995" blue="0.92936509850000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="sY1-Ui-YW1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <state key="normal" title="Extract audio from video and Play!">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTapConvertButton:" destination="-1" eventType="touchUpInside" id="UST-am-07l"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssE-qD-Oq8">
+                                                    <rect key="frame" x="0.0" y="117" width="382" height="0.5"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.5" id="uSO-Hf-Dgl"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="EeY-ap-sdN" secondAttribute="bottom" constant="32" id="dE1-yv-zqG"/>
+                                <constraint firstAttribute="trailing" secondItem="EeY-ap-sdN" secondAttribute="trailing" constant="16" id="f0e-XT-2PS"/>
+                                <constraint firstItem="EeY-ap-sdN" firstAttribute="top" secondItem="I5W-pl-yqJ" secondAttribute="top" constant="32" id="oEy-fd-fee"/>
+                                <constraint firstItem="EeY-ap-sdN" firstAttribute="leading" secondItem="I5W-pl-yqJ" secondAttribute="leading" constant="16" id="zmN-Ji-rdn"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="I5W-pl-yqJ" firstAttribute="bottom" secondItem="bgi-oa-tXV" secondAttribute="bottom" id="Ji2-fj-qXB"/>
+                        <constraint firstItem="I5W-pl-yqJ" firstAttribute="leading" secondItem="bgi-oa-tXV" secondAttribute="leading" id="bDe-V6-eHV"/>
+                        <constraint firstItem="I5W-pl-yqJ" firstAttribute="top" secondItem="bgi-oa-tXV" secondAttribute="top" id="cgp-f1-Gmt"/>
+                        <constraint firstItem="I5W-pl-yqJ" firstAttribute="trailing" secondItem="bgi-oa-tXV" secondAttribute="trailing" id="rxB-VG-tC9"/>
+                        <constraint firstItem="I5W-pl-yqJ" firstAttribute="width" secondItem="CBk-rN-xXl" secondAttribute="width" id="tnz-y3-fit"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="bgi-oa-tXV"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="CBk-rN-xXl"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ehr-pB-Vkq" secondAttribute="trailing" id="Qi4-Yh-9oD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="Ehr-pB-Vkq" secondAttribute="leading" id="YIG-xe-pcp"/>
+                <constraint firstAttribute="bottom" secondItem="Ehr-pB-Vkq" secondAttribute="bottom" id="hco-Jl-1KA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Ehr-pB-Vkq" secondAttribute="top" id="q4p-0r-gzc"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="133" y="154"/>
+        </view>
+    </objects>
+</document>

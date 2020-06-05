@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wZQ-Zj-LQB">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--AVFoundation Sample-->
+        <scene sceneID="zrA-I3-u5d">
+            <objects>
+                <viewController id="wZQ-Zj-LQB" customClass="InitialViewController" customModule="AVFoundationSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1LH-Zb-yHI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSa-Xs-whN">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1O-EX-ElJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="193"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="d55-9P-tA6">
+                                                <rect key="frame" x="16" y="32" width="382" height="129"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a sample about AVFoundation." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iib-8F-1vS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHE-es-nQA">
+                                                        <rect key="frame" x="0.0" y="52.5" width="382" height="44"/>
+                                                        <color key="backgroundColor" red="0.30069732669999999" green="0.62170332669999995" blue="0.92936509850000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="dt7-3n-lvF"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                        <state key="normal" title="Extract audio from video">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="didTapButton:" destination="wZQ-Zj-LQB" eventType="touchUpInside" id="oKB-FY-aUH"/>
+                                                        </connections>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0xY-RI-Ger">
+                                                        <rect key="frame" x="0.0" y="128.5" width="382" height="0.5"/>
+                                                        <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="0.5" id="5OY-13-jCI"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="d55-9P-tA6" firstAttribute="top" secondItem="g1O-EX-ElJ" secondAttribute="top" constant="32" id="HN8-uR-8Lv"/>
+                                            <constraint firstAttribute="trailing" secondItem="d55-9P-tA6" secondAttribute="trailing" constant="16" id="cgz-WG-xnr"/>
+                                            <constraint firstAttribute="bottom" secondItem="d55-9P-tA6" secondAttribute="bottom" constant="32" id="wn1-TQ-SmD"/>
+                                            <constraint firstItem="d55-9P-tA6" firstAttribute="leading" secondItem="g1O-EX-ElJ" secondAttribute="leading" constant="16" id="ym2-sV-2WW"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="g1O-EX-ElJ" firstAttribute="leading" secondItem="6c4-jd-HbJ" secondAttribute="leading" id="Rpw-mL-a7g"/>
+                                    <constraint firstItem="g1O-EX-ElJ" firstAttribute="bottom" secondItem="6c4-jd-HbJ" secondAttribute="bottom" id="WAU-0k-n6h"/>
+                                    <constraint firstItem="g1O-EX-ElJ" firstAttribute="width" secondItem="195-p3-06N" secondAttribute="width" id="ckT-M5-OxY"/>
+                                    <constraint firstItem="g1O-EX-ElJ" firstAttribute="top" secondItem="6c4-jd-HbJ" secondAttribute="top" id="dJH-xb-HC0"/>
+                                    <constraint firstItem="g1O-EX-ElJ" firstAttribute="trailing" secondItem="6c4-jd-HbJ" secondAttribute="trailing" id="s8Y-Jc-ywM"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="6c4-jd-HbJ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="195-p3-06N"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HSa-Xs-whN" firstAttribute="leading" secondItem="A3b-Rc-2FD" secondAttribute="leading" id="28k-u8-kKk"/>
+                            <constraint firstItem="A3b-Rc-2FD" firstAttribute="trailing" secondItem="HSa-Xs-whN" secondAttribute="trailing" id="Cb0-4J-vqe"/>
+                            <constraint firstAttribute="bottom" secondItem="HSa-Xs-whN" secondAttribute="bottom" id="DMP-mW-bzs"/>
+                            <constraint firstItem="HSa-Xs-whN" firstAttribute="top" secondItem="A3b-Rc-2FD" secondAttribute="top" id="shb-Ue-uHc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="A3b-Rc-2FD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="AVFoundation Sample" id="AtN-FD-wXp"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outletCollection property="buttons" destination="QHE-es-nQA" collectionClass="NSMutableArray" id="PLf-F5-bSy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTf-PV-fR3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="319" y="-249"/>
+        </scene>
+    </scenes>
+</document>
