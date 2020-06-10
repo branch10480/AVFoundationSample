@@ -33,7 +33,6 @@ class AVPlayerViewModel: NSObject {
 
     // Observables
     private let didPlayToEnd: Driver<Notification>
-    private var currentTime: CMTime
     
     init(
         bottomButtonTap: Observable<Void>,
@@ -56,7 +55,6 @@ class AVPlayerViewModel: NSObject {
 
         // ConvertCMTime
         let time = CMTime(seconds: interval, preferredTimescale: Int32(NSEC_PER_SEC))
-        self.currentTime = time
         
         // Call Super Method
         super.init()
@@ -70,7 +68,6 @@ class AVPlayerViewModel: NSObject {
             {
                 return
             }
-            self.currentTime = time
             
             let duration = CMTimeGetSeconds(currentTime.duration)
             let time = CMTimeGetSeconds(player.currentTime())
@@ -99,6 +96,7 @@ class AVPlayerViewModel: NSObject {
             }
             
             let imageGenerator = AVAssetImageGenerator(asset: asset)
+            imageGenerator.appliesPreferredTrackTransform = true
             do {
                 let cgImage = try imageGenerator.copyCGImage(at: player.currentTime(), actualTime: nil)
                 let uiImage = UIImage(cgImage: cgImage)
@@ -121,7 +119,11 @@ class AVPlayerViewModel: NSObject {
         
         // Slider Value Changed
         sliderValueChange.subscribe(onNext: { value in
-            player.seek(to: CMTimeMakeWithSeconds(Float64(value), preferredTimescale: Int32(NSEC_PER_SEC)))
+            let time = CMTimeMakeWithSeconds(Float64(value), preferredTimescale: Int32(NSEC_PER_SEC))
+            player.seek(
+                to: time,
+                toleranceBefore: .zero, toleranceAfter: .zero
+            )
             }).disposed(by: disposeBag)
     }
     

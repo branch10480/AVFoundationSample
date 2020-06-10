@@ -40,8 +40,13 @@ class AVPlayerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         setupAVPlayer()
         bind()
+    }
+    
+    private func setup() {
+        convertToImageButton.isHidden = asset.tracks(withMediaType: .video).isEmpty
     }
     
     private func setupAVPlayer() {
