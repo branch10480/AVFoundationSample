@@ -16,6 +16,11 @@ class ExtractionOfAudioFromVideoViewController: UIViewController {
     private var avmService: AVManagementServiceProtocol!
     private let disposeBag = DisposeBag()
     @IBOutlet var buttons: [UIButton]!
+    private var asset: AVAsset!
+
+    public func inject(_ asset: AVAsset) {
+        self.asset = asset
+    }
 
     public func inject(_ service: AVManagementServiceProtocol) {
         self.avmService = service
@@ -31,13 +36,8 @@ class ExtractionOfAudioFromVideoViewController: UIViewController {
     }
     
     @IBAction func didTapConvertButton(_ sender: Any) {
-        guard let path = Bundle.main.path(forResource: "rooster", ofType: "mp4") else {
-            return
-        }
-        let url = URL(fileURLWithPath: path)
-        let movieAsset = AVAsset(url: url)
         SVProgressHUD.show()
-        avmService.getAudio(from: movieAsset)
+        avmService.getAudio(from: asset)
             .observeOn(MainScheduler.instance)
             .subscribe(onSuccess: { [weak self] asset in
                 SVProgressHUD.dismiss()
@@ -51,12 +51,7 @@ class ExtractionOfAudioFromVideoViewController: UIViewController {
     }
     
     @IBAction func didTapPlayButton(_ sender: Any) {
-        guard let path = Bundle.main.path(forResource: "rooster", ofType: "mp4") else {
-            return
-        }
-        let url = URL(fileURLWithPath: path)
-        let movieAsset = AVAsset(url: url)
-        launchAVPlayer(asset: movieAsset)
+        launchAVPlayer(asset: asset)
     }
     
     private func launchAVPlayer(asset: AVAsset) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class InitialViewController: UIViewController {
 
@@ -20,16 +21,46 @@ class InitialViewController: UIViewController {
         }
     }
     
-    @IBAction func didTapButton(_ sender: UIButton) {
+    private func pushToNext(asset: AVAsset?) {
+        let vc = ExtractionOfAudioFromVideoViewController()
+        vc.inject(AVManagementService())
+        
+        var asset = asset
+        if asset == nil, let path = Bundle.main.path(forResource: "rooster", ofType: "mp4") {
+            let url = URL(fileURLWithPath: path)
+            asset = AVAsset(url: url)
+        }
+        vc.inject(asset!)
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func didTapSampleButton(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            let vc = ExtractionOfAudioFromVideoViewController()
-            vc.inject(AVManagementService())
-            navigationController?.pushViewController(vc, animated: true)
-            break
+            pushToNext(asset: nil)
         default:
             break
         }
     }
 
+    @IBAction func didTapLibraryButton(_ sender: Any) {
+        let imagePC = UIImagePickerController()
+        imagePC.sourceType = .photoLibrary
+        imagePC.mediaTypes = ["public.movie"]
+        imagePC.delegate = self
+        present(imagePC, animated: true, completion: nil)
+    }
+}
+
+extension InitialViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL else {
+            return
+        }
+        let asset = AVAsset(url: videoURL)
+        picker.dismiss(animated: true, completion: { [weak self] in
+            self?.pushToNext(asset: asset)
+        })
+    }
 }

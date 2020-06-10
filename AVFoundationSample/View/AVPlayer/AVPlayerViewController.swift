@@ -99,7 +99,11 @@ class AVPlayerViewController: UIViewController {
             }
             
             let ac = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            ac.addAction(.init(title: "OK", style: .default, handler: nil))
+            ac.addAction(.init(title: "OK", style: .default, handler: { _ in
+                if let url = URL(string: "photos-redirect://"), UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }))
             self.present(ac, animated: true, completion: nil)
             
             }).disposed(by: disposeBag)
