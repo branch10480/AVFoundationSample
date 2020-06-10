@@ -9,5 +9,6 @@ target 'AVFoundationSample' do
   # Pods for AVFoundationSample
   pod 'SVProgressHUD', :binary => true
   pod 'RxSwift', :binary => true
+  pod 'RxCocoa', :binary => true
 
 end

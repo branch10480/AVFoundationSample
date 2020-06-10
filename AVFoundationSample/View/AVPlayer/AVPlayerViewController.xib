@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AVPlayerViewController" customModule="AVFoundationSample" customModuleProvider="target">
             <connections>
+                <outlet property="bottomButton" destination="arf-SU-qag" id="Gbh-xb-vgz"/>
+                <outlet property="convertToImageButton" destination="vR5-Nd-bgv" id="u84-oq-Acw"/>
+                <outlet property="playerView" destination="zfN-0A-4O1" id="5En-uf-JLx"/>
                 <outlet property="slider" destination="KiG-zS-Yvb" id="fqV-GI-mug"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,6 +22,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfN-0A-4O1" customClass="PlayerView" customModule="AVFoundationSample" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvp-4d-auJ">
                     <rect key="frame" x="348" y="52" width="42" height="30"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -35,15 +42,16 @@
                     <state key="normal" title="Start">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
-                    <connections>
-                        <action selector="didTapStartButton:" destination="-1" eventType="touchUpInside" id="Dgg-fX-jCx"/>
-                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vR5-Nd-bgv">
+                    <rect key="frame" x="210" y="90" width="180" height="30"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Convert to Image &amp; Save">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                 </button>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KiG-zS-Yvb">
                     <rect key="frame" x="30" y="764" width="354" height="31"/>
-                    <connections>
-                        <action selector="didChangedSliderValue:" destination="-1" eventType="valueChanged" id="ApX-Ad-jp4"/>
-                    </connections>
                 </slider>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -51,7 +59,13 @@
                 <constraint firstItem="arf-SU-qag" firstAttribute="top" secondItem="KiG-zS-Yvb" secondAttribute="bottom" constant="8" id="2fW-Ra-xJa"/>
                 <constraint firstItem="KiG-zS-Yvb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="5Xw-do-OO0"/>
                 <constraint firstItem="arf-SU-qag" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="BVx-mC-aHg"/>
+                <constraint firstItem="vR5-Nd-bgv" firstAttribute="trailing" secondItem="hvp-4d-auJ" secondAttribute="trailing" id="Byd-LQ-6ML"/>
+                <constraint firstItem="zfN-0A-4O1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CYd-zp-Xyh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zfN-0A-4O1" secondAttribute="trailing" id="Sgw-sT-G1o"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hvp-4d-auJ" secondAttribute="trailing" constant="24" id="TeR-dI-UUj"/>
+                <constraint firstItem="zfN-0A-4O1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UyO-pw-5Ql"/>
+                <constraint firstItem="vR5-Nd-bgv" firstAttribute="top" secondItem="hvp-4d-auJ" secondAttribute="bottom" constant="8" id="VOI-mm-Kgm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zfN-0A-4O1" secondAttribute="bottom" id="XT1-hA-H8P"/>
                 <constraint firstItem="hvp-4d-auJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="bEu-ts-HKy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="arf-SU-qag" secondAttribute="bottom" constant="26" id="oCf-EA-eme"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KiG-zS-Yvb" secondAttribute="trailing" constant="32" id="qlQ-BV-lGI"/>
