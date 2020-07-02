@@ -85,7 +85,7 @@ class AVPlayerViewModel: NSObject {
         convertToImageButtonTap.subscribe(onNext: { [weak self] in
             
             guard let self = self,
-                  let asset = player.currentItem?.asset else { return }
+                  let asset = self.player.currentItem?.asset else { return }
             
             self.player.pause()
             
@@ -98,7 +98,8 @@ class AVPlayerViewModel: NSObject {
             let imageGenerator = AVAssetImageGenerator(asset: asset)
             imageGenerator.appliesPreferredTrackTransform = true
             do {
-                let cgImage = try imageGenerator.copyCGImage(at: player.currentTime(), actualTime: nil)
+                let time = self.player.currentTime()
+                let cgImage = try imageGenerator.copyCGImage(at: time, actualTime: nil)
                 let uiImage = UIImage(cgImage: cgImage)
                 UIImageWriteToSavedPhotosAlbum(uiImage, self, #selector(self.handlePhotoSavingResult(_:didFinishSavingWithError:contextInfo:)), nil)
             } catch {

@@ -45,6 +45,12 @@ class AVPlayerViewController: UIViewController {
         bind()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        player.pause()
+        player.replaceCurrentItem(with: nil)
+    }
+    
     private func setup() {
         convertToImageButton.isHidden = asset.tracks(withMediaType: .video).isEmpty
     }
